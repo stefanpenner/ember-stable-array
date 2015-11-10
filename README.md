@@ -14,7 +14,7 @@ signifcantly better.
 
 `ember install ember-stable-array`
 
-```
+```js
 import stable from 'ember-stable-array/computed';
 import Ember from 'ember';
 
