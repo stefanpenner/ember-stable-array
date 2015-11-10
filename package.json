@@ -1,7 +1,7 @@
 {
   "name": "ember-stable-array",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.0.1",
+  "description": "hack for pre glimmer fast each re-renders",
   "directories": {
     "doc": "doc",
     "test": "tests"
