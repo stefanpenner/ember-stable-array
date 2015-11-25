@@ -3,16 +3,16 @@ import syncArray from './sync-array';
 
 var count = 0;
 
-export default function stable(key) {
+export default function stable(key, reload) {
   let stableArrayName = `_stable-array-${count++}`;
 
-  return Ember.computed(key + '.[]', function() {
-    if (this[stableArrayName] === undefined) {
+  return Ember.computed(key + '.[]', reload, function() {
+    if (this[stableArrayName] === undefined || this.get(reload)) {
       this[stableArrayName] = [];
     }
 
     var stableArray = this[stableArrayName];
-    syncArray(stableArray, this.get('data'));
+    syncArray(stableArray, this.get(key));
     return stableArray;
   });
 }

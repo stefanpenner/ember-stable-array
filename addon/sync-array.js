@@ -1,10 +1,9 @@
 import Ember from 'ember';
 
 export default function syncArray(array, inputArray) {
-  array.length = inputArray.length;
-
   Ember.beginPropertyChanges();
 
+  Ember.set(array, 'length', Ember.get(inputArray, 'length'));
   for (let i = 0; i < inputArray.length; i++) {
     let entry = array[i];
     if (entry === undefined) {
@@ -17,8 +16,6 @@ export default function syncArray(array, inputArray) {
       throw new TypeError('array contained non ObjectProxy content');
     }
   }
-
   Ember.endPropertyChanges();
   return array;
 }
-
